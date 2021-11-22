@@ -1,4 +1,5 @@
 const readline = require('readline');
+const { client } = require('./rssClient');
 
 exports.input = () => {
 
@@ -13,10 +14,15 @@ exports.input = () => {
 	rl.prompt();
 
 	rl.on('line', (line) => {
+		let host;
+		let path;
+
 		try {
 
 			let rssUrl = new URL(line.trim());
-			console.log(rssUrl);
+
+			host = rssUrl.host;
+			path = rssUrl.pathname;
 
 		} catch(e) {
 
@@ -24,6 +30,8 @@ exports.input = () => {
 			rl.prompt();
 
 		}
+
+		client(host, path);
 
 	}).on('close', () => {
 		console.log('\nHave a great day!\n');
