@@ -1,12 +1,8 @@
-const https = require('https');
+const { input } = require('./userInput');
 
-const host = 'dev.to';
-const path = '/feed';
 
-https.get({host: host, path: path}, res => {
+function main() {
+	input();
+}
 
-	res.on('data', data => {
-		process.stdout.write(data);
-	});
-
-}).on('error', e => console.log(e));
+main();
