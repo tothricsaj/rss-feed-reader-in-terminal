@@ -3,8 +3,7 @@ const { client } = require('./rssClient');
 
 
 function main() {
-	// input();
-	client();
+	input();
 }
 
 main();
