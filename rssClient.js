@@ -10,7 +10,6 @@ exports.client = (host, path) => {
 
 		res.on('data', data => {
 			xmlBuff += data
-			
 		});
 
 		res.on('end', () => {
@@ -18,9 +17,9 @@ exports.client = (host, path) => {
 				feedArray = [...result['rss']['channel'][0]["item"]];
 
 				feedArray.forEach(element => {
-					console.log(`${colors.Bright}${colors.FgGreen}${element.title[0]}${colors.Reset}\n`);
-					console.log(`${colors.FgGreen}${element.description[0]}${colors.Reset}`);
-					console.log(`${element.link[0]}`);
+					!!element.title && console.log(`${colors.Bright}${colors.FgGreen}${element.title[0]}${colors.Reset}\n`);
+					!!element.description && console.log(`${colors.FgGreen}${element.description[0]}${colors.Reset}`);
+					!!element.link && console.log(`${element.link[0]}`);
 
 					console.log(`\n${colors.BgRed}${colors.FgWhite}------------------------oooooooooooooooo------------------------${colors.Reset}\n`);
 				});
