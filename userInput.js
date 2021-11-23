@@ -3,8 +3,6 @@ const { client } = require('./rssClient');
 
 exports.input = () => {
 
-	console.log('running user input');
-
 	const rl = readline.createInterface({
 		input: process.stdin,
 		output: process.stdout,
